@@ -166,107 +166,106 @@ window.addEventListener("load", () => {
     });
   };
   const addBgPicker = () => {
-    bg.addEventListener("click", (e) => {
-      bg.innerHTML = `<div class="bg-box">
+    bg.innerHTML = `<div class="bg-box">
           <input type="color" class="bg-picker" />
         </div>`;
+    bg.addEventListener("click", (e) => {
       const bgPicker = document.querySelector(".bg-picker");
       bgPicker.addEventListener("input", (e) => {
         bgColor = bgPicker.value;
         canvas.style.background = bgColor;
-        // bg.innerHTML =";
       });
     });
   };
 
-  const shapeopts = () => {
-    shapeopt.addEventListener("click", (e) => {
-      shapes.style.display = "flex";
-    });
-  };
+  // const shapeopts = () => {
+  //   shapeopt.addEventListener("click", (e) => {
+  //     shapes.style.display = "flex";
+  //   });
+  // };
 
-  function makeShapes() {
-    const rectangle = document.getElementById("Rectangle");
-    rectangle.addEventListener("click", (e) => {
-      ctx.strokeRect(
-        e.clientX - canvas.offsetLeft / 2 - 100,
-        e.clientY - canvas.offsetTop / 2,
-        400,
-        200
-      );
-    });
-    const square = document.getElementById("Square");
-    square.addEventListener("click", (e) => {
-      ctx.strokeRect(
-        e.clientX - canvas.offsetLeft / 2,
-        e.clientY - canvas.offsetTop / 2,
-        200,
-        200
-      );
-    });
-    const circle = document.getElementById("Circle");
-    circle.addEventListener("click", (e) => {
-      ctx.beginPath();
-      ctx.arc(
-        e.clientX - canvas.offsetLeft / 2 - 50,
-        e.clientY - canvas.offsetTop / 2,
-        50,
-        0,
-        Math.PI * 2,
-        false
-      );
-      ctx.stroke();
-      ctx.beginPath();
-    });
-    const triangle = document.getElementById("Triangle");
-    triangle.addEventListener("click", (e) => {
-      ctx.beginPath();
-      ctx.moveTo(
-        e.clientX - canvas.offsetLeft / 2,
-        e.clientY - canvas.offsetTop / 2
-      );
-      ctx.lineTo(
-        e.clientX - canvas.offsetLeft / 2 - 100,
-        e.clientY - canvas.offsetTop / 2 - 200
-      );
-      ctx.lineTo(
-        e.clientX - canvas.offsetLeft / 2 - 100,
-        e.clientY - canvas.offsetTop / 2 - 250
-      );
-      ctx.closePath();
-      ctx.stroke();
-      ctx.beginPath();
-    });
+  // function makeShapes() {
+  //   const rectangle = document.getElementById("Rectangle");
+  //   rectangle.addEventListener("click", (e) => {
+  //     ctx.strokeRect(
+  //       e.clientX - canvas.offsetLeft / 2 - 100,
+  //       e.clientY - canvas.offsetTop / 2,
+  //       400,
+  //       200
+  //     );
+  //   });
+  //   const square = document.getElementById("Square");
+  //   square.addEventListener("click", (e) => {
+  //     ctx.strokeRect(
+  //       e.clientX - canvas.offsetLeft / 2,
+  //       e.clientY - canvas.offsetTop / 2,
+  //       200,
+  //       200
+  //     );
+  //   });
+  //   const circle = document.getElementById("Circle");
+  //   circle.addEventListener("click", (e) => {
+  //     ctx.beginPath();
+  //     ctx.arc(
+  //       e.clientX - canvas.offsetLeft / 2 - 50,
+  //       e.clientY - canvas.offsetTop / 2,
+  //       50,
+  //       0,
+  //       Math.PI * 2,
+  //       false
+  //     );
+  //     ctx.stroke();
+  //     ctx.beginPath();
+  //   });
+  //   const triangle = document.getElementById("Triangle");
+  //   triangle.addEventListener("click", (e) => {
+  //     ctx.beginPath();
+  //     ctx.moveTo(
+  //       e.clientX - canvas.offsetLeft / 2,
+  //       e.clientY - canvas.offsetTop / 2
+  //     );
+  //     ctx.lineTo(
+  //       e.clientX - canvas.offsetLeft / 2 - 100,
+  //       e.clientY - canvas.offsetTop / 2 - 200
+  //     );
+  //     ctx.lineTo(
+  //       e.clientX - canvas.offsetLeft / 2 - 100,
+  //       e.clientY - canvas.offsetTop / 2 - 250
+  //     );
+  //     ctx.closePath();
+  //     ctx.stroke();
+  //     ctx.beginPath();
+  //   });
 
-    const line = document.getElementById("Line");
-    line.addEventListener("click", (e) => {
-      ctx.beginPath();
-      ctx.log(e.target);
-      ctx.beginPath();
-      ctx.moveTo(e.clientX, e.clientY);
-      ctx.lineTo(
-        e.clientX - canvas.offsetLeft / 2,
-        e.clientY - canvas.offsetTop / 2
-      );
-      ctx.stroke();
-      ctx.closePath();
-    });
+  //   const line = document.getElementById("Line");
+  //   line.addEventListener("click", (e) => {
+  //     ctx.beginPath();
+  //     ctx.log(e.target);
+  //     ctx.beginPath();
+  //     ctx.moveTo(e.clientX, e.clientY);
+  //     ctx.lineTo(
+  //       e.clientX - canvas.offsetLeft / 2,
+  //       e.clientY - canvas.offsetTop / 2
+  //     );
+  //     ctx.stroke();
+  //     ctx.closePath();
+  //   });
 
-    const ellipse = document.getElementById("shapeEllipse");
-    ellipse.addEventListener("click", (e) => {
-      ctx.beginPath();
-      ctx.ellipse(
-        e.clientX - canvas.offsetLeft / 2,
-        e.clientY - canvas.offsetTop / 2,
-        50,
-        75,
-        Math.PI / 2,
-        0,
-        2 * Math.PI
-      );
-      ctx.stroke();
-    });
-  }
+  //   const ellipse = document.getElementById("shapeEllipse");
+  //   ellipse.addEventListener("click", (e) => {
+  //     ctx.beginPath();
+  //     ctx.ellipse(
+  //       e.clientX - canvas.offsetLeft / 2,
+  //       e.clientY - canvas.offsetTop / 2,
+  //       50,
+  //       75,
+  //       Math.PI / 2,
+  //       0,
+  //       2 * Math.PI
+  //     );
+  //     ctx.stroke();
+  //   });
+  // }
 
   // const eraseOnMove = () => {
   //     ctx.fillStyle = bgColor
