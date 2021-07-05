@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Whiteboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="canvas"></canvas>
+      <div class="btns">
+        <button type="button" class="undo">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg
+            width="21px"
+            height="8px"
+            viewBox="0 0 21 8"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+            <title>undo</title>
+            <desc>Created with Sketch.</desc>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g id="Rounded" transform="translate(-238.000000, -1534.000000)">
+                <g id="Content" transform="translate(100.000000, 1428.000000)">
+                  <g
+                    id="-Round-/-Content-/-undo"
+                    transform="translate(136.000000, 98.000000)"
+                  >
+                    <g>
+                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                      <path
+                        d="M12.5,8 C9.85,8 7.45,8.99 5.6,10.6 L3.71,8.71 C3.08,8.08 2,8.52 2,9.41 L2,15 C2,15.55 2.45,16 3,16 L8.59,16 C9.48,16 9.93,14.92 9.3,14.29 L7.39,12.38 C8.78,11.22 10.55,10.5 12.51,10.5 C15.67,10.5 18.4,12.34 19.7,15 C19.97,15.56 20.61,15.84 21.2,15.64 C21.91,15.41 22.27,14.6 21.95,13.92 C20.23,10.42 16.65,8 12.5,8 Z"
+                        id="🔹Icon-Color"
+                        fill="#1D1D1D"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button type="button" class="redo">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg
+            width="21px"
+            height="8px"
+            viewBox="0 0 21 8"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+            <title>redo</title>
+            <desc>Created with Sketch.</desc>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g id="Rounded" transform="translate(-713.000000, -1534.000000)">
+                <g id="Content" transform="translate(100.000000, 1428.000000)">
+                  <g
+                    id="-Round-/-Content-/-redo"
+                    transform="translate(612.000000, 98.000000)"
+                  >
+                    <g>
+                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                      <path
+                        d="M18.4,10.6 C16.55,8.99 14.15,8 11.5,8 C7.34,8 3.76,10.42 2.06,13.93 C1.74,14.6 2.1,15.4 2.81,15.64 C3.4,15.84 4.04,15.56 4.31,15 C5.61,12.34 8.34,10.5 11.5,10.5 C13.45,10.5 15.23,11.22 16.62,12.38 L14.71,14.29 C14.08,14.92 14.52,16 15.41,16 L21,16 C21.55,16 22,15.55 22,15 L22,9.41 C22,8.52 20.92,8.07 20.29,8.7 L18.4,10.6 Z"
+                        id="🔹Icon-Color"
+                        fill="#1D1D1D"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button type="button" class="clear">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg
+            width="14px"
+            height="16px"
+            viewBox="0 0 14 18"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+            <title>delete_outline</title>
+            <desc>Created with Sketch.</desc>
+            <g
+              id="Icons"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g id="Two-Tone" transform="translate(-105.000000, -245.000000)">
+                <g id="Action" transform="translate(100.000000, 100.000000)">
+                  <g
+                    id="Two-Tone-/-Action-/-delete_outline"
+                    transform="translate(0.000000, 142.000000)"
+                  >
+                    <g>
+                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                      <path
+                        d="M6,19 C6,20.1 6.9,21 8,21 L16,21 C17.1,21 18,20.1 18,19 L18,7 L6,7 L6,19 Z M8,9 L16,9 L16,19 L8,19 L8,9 Z M15.5,4 L14.5,3 L9.5,3 L8.5,4 L5,4 L5,6 L19,6 L19,4 L15.5,4 Z"
+                        id="🔹-Primary-Color"
+                        fill="#1D1D1D"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button type="button" id="eraser" class="erase">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24"
+            height="24"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+          >
+            <path
+              fill="none"
+              d="M10.224 18a.848.848 0 0 1 .069-.079l4.557-4.557l-4.95-4.95l-.744.743l-4.748 4.837L8.413 18h1.811z"
+            />
+            <path
+              d="M12.485 3l-4.75 4.749l-4.754 4.843a2.005 2.005 0 0 0 .012 2.815l4.299 4.299a.992.992 0 0 0 .707.294H20v-2h-6.958l7.222-7.222c.78-.78.78-2.048 0-2.828L15.313 3a2.001 2.001 0 0 0-2.828 0zM8.413 18l-4.005-4.006l4.748-4.837l.743-.743l4.95 4.95l-4.557 4.557a.848.848 0 0 0-.069.079h-1.81z"
+              fill="#000000"
+            />
+            <rect x="0" y="0" width="24" height="24" fill="rgba(0, 0, 0, 0)" />
+          </svg>
+        </button>
+
+        <div class="color red" id="red">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            focusable="false"
+            width="3em"
+            height="3em"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <g stroke-width="1.5" fill="none">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2z"
+                stroke="red"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 21.168V14l4-7l4 7v7.168"
+                stroke="red"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 14s1.127 1 2 1s2-1 2-1s1.127 1 2 1s2-1 2-1"
+                stroke="red"
+                <!-- stroke-linecap="round"
+                stroke-linejoin="round" -->
+              />
+            </g>
+          </svg>
+        </div>
+        <div class="color blue" id="blue">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            focusable="false"
+            width="3em"
+            height="3em"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <g stroke-width="1.5" fill="none">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2z"
+                stroke="blue"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 21.168V14l4-7l4 7v7.168"
+                stroke="blue"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 14s1.127 1 2 1s2-1 2-1s1.127 1 2 1s2-1 2-1"
+                stroke="blue"
+                <!-- stroke-linecap="round"
+                stroke-linejoin="round" -->
+              />
+            </g>
+          </svg>
+        </div>
+        <div class="color green" id="green">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            focusable="false"
+            width="3em"
+            height="3em"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <g stroke-width="1.5" fill="none">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2z"
+                stroke="green"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 21.168V14l4-7l4 7v7.168"
+                stroke="green"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 14s1.127 1 2 1s2-1 2-1s1.127 1 2 1s2-1 2-1"
+                stroke="green"
+                <!-- stroke-linecap="round"
+                stroke-linejoin="round" -->
+              />
+            </g>
+          </svg>
+        </div>
+        <div class="color yellow" id="yellow"><svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+            focusable="false"
+            width="3em"
+            height="3em"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <g stroke-width="1.5" fill="none">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2z"
+                stroke="yellow"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 21.168V14l4-7l4 7v7.168"
+                stroke="yellow"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 14s1.127 1 2 1s2-1 2-1s1.127 1 2 1s2-1 2-1"
+                stroke="yellow"
+                <!-- stroke-linecap="round"
+                stroke-linejoin="round" -->
+              />
+            </g>
+          </svg></div>
+
+        <!-- <input type="color" class="color-picker" /> -->
+        <input type="range" min="1" max="100" class="range" />
+        <!-- <div class="shape-btn" title="Shapes" id="shapes"> -->
+
+          
+        <button type="button" class="shape-btn" id="shapes">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24"
+            height="25"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 1024 1025"
+            style="
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            "
+          >
+            <path
+              d="M736 897q-119 0-203.5-84.5T448 609q0-15 2-32h302q10-11 14.5-64t-4.5-64l-68-125q23-3 42-3q119 0 203.5 84.5T1024 609t-84.5 203.5T736 897zm-42-384H169q-10-10-10-25t10-26L409 11q9-11 22.5-11T454 11l240 451q10 11 9.5 26t-9.5 25zm-310 96q0 81 34 151.5T512 881v112q0 13-9.5 22.5T480 1025H32q-13 0-22.5-9.5T0 993V545q0-13 9.5-22.5T32 513h65q4 53 14 64h275q-2 24-2 32z"
+              fill="#000000"
+            />
+            <rect x="0" y="0" width="24" height="25" fill="rgba(0, 0, 0, 0)" />
+          </svg>
+
+          <div class="shape-display none">
+            <div class="btn">
+              <input type="color" id="shapeColor" />
+            </div>
+            <div class="btn" id="Rectangle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24"
+                height="24"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 48 48"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+              >
+                <path
+                  d="M42 8H6a2 2 0 0 0-2 2v28a2 2 0 0 0 2 2h36a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2z"
+                  stroke="#000000"
+                  stroke-width="4"
+                  fill="none"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  fill="rgba(0, 0, 0, 0)"
+                />
+              </svg>
+            </div>
+            <div class="btn" id="Square">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24"
+                height="24"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+              >
+                <path
+                  d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"
+                  fill="#000000"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  fill="rgba(0, 0, 0, 0)"
+                />
+              </svg>
+            </div>
+            <div class="btn" id="Circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24"
+                height="24"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+              >
+                <g fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#000000"
+                    stroke-width="2"
+                  />
+                </g>
+                <rect
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  fill="rgba(0, 0, 0, 0)"
+                />
+              </svg>
+            </div>
+            <div class="btn" id="Triangle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24"
+                height="24"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 512 512"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+              >
+                <path
+                  fill="#000000"
+                  d="M273.342 66.038a20 20 0 0 0-34.684 0L29.569 430.007a20 20 0 0 0 17.342 29.963h418.178a20 20 0 0 0 17.342-29.962zM67.644 427.97L256 100.091L444.356 427.97z"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  fill="rgba(0, 0, 0, 0)"
+                />
+              </svg>
+            </div>
+            <div class="btn" id="Line">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24"
+                height="24"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 1024 1024"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+              >
+                <path
+                  d="M904 476H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z"
+                  fill="#000000"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  fill="rgba(0, 0, 0, 0)"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
