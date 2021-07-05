@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
 }
+body {
+  overflow: hidden;
+}
 
 ::selection {
   user-select: none;
@@ -17,7 +20,7 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background: #efffee;
+  /* background: #efffee; */
 }
 
 .btns {
@@ -28,6 +31,11 @@
   align-items: center;
   /* margin-right: 30px; */
   padding: 10 10px;
+  border: 1px solid rgb(99, 97, 97);
+  padding: 5px 10px;
+  border-radius: 20px;
+  position: absolute;
+  top: 85%;
 }
 
 #canvas {
@@ -35,12 +43,6 @@
   background: #fff;
   cursor: crosshair;
   /* margin-bottom: 5%; */
-}
-
-.btns {
-  border: 1px solid rgb(99, 97, 97);
-  padding: 5px 10px;
-  border-radius: 20px;
 }
 
 .btns .color {
@@ -70,6 +72,9 @@
 .btns .color-picker {
   border: 2px solid black;
 }
+svg {
+  place-items: center;
+}
 
 .shape-display {
   display: flex;
@@ -84,3 +89,7 @@
   border-radius: 0.5rem;
   /* display: none; */
 }
+
+/* .btn {
+  display: none;
+} */

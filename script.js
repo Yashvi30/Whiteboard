@@ -5,14 +5,16 @@ window.addEventListener("load", () => {
   const picker = document.querySelector(".color-picker");
   const range = document.querySelector(".range");
   const clear = document.querySelector(".clear");
-  const shape = document.querySelector("shape-btn");
+  const bg = document.querySelector(".background");
+  const shapeopt = document.querySelector("shape-btn");
+  const shapes = document.querySelector("btn");
   const undo = document.querySelector(".undo");
   const redo = document.querySelector(".redo");
   const erase = document.querySelector(".erase");
   // console.log(colors)
 
-  canvas.height = 0.77 * window.innerHeight;
-  canvas.width = 0.8 * window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
 
   let bgColor = "white";
   let penColor = "black";
@@ -92,66 +94,108 @@ window.addEventListener("load", () => {
       }
     });
   };
-  //   function handleShapeEvents() {
-  //     const rectangle = document.getElementById("Rectangle");
-  //     rectangle.addEventListener("click", (e) => {
-  //       ctx.strokeRect(canvas.width / 2 - 100, canvas.height / 2, 400, 200);
-  //     });
-  //     const square = document.getElementById("Square");
-  //     square.addEventListener("click", (e) => {
-  //       ctx.strokeRect(canvas.width / 2, canvas.height / 2, 200, 200);
-  //     });
-  //     const circle = document.getElementById("Circle");
-  //     circle.addEventListener("click", (e) => {
-  //       ctx.beginPath();
-  //       ctx.arc(
-  //         canvas.width / 2 - 50,
-  //         canvas.height / 2,
-  //         50,
-  //         0,
-  //         Math.PI * 2,
-  //         false
-  //       );
-  //       ctx.stroke();
-  //       ctx.beginPath();
-  //     });
-  //     const triangle = document.getElementById("Triangle");
-  //     triangle.addEventListener("click", (e) => {
-  //       ctx.beginPath();
-  //       ctx.moveTo(canvas.width / 2, canvas.height / 2);
-  //       ctx.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 200);
-  //       ctx.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 250);
-  //       ctx.closePath();
-  //       ctx.stroke();
-  //       ctx.beginPath();
-  //     });
+  const addBgPicker = () => {
+    bg.addEventListener("click", (e) => {
+      bg.innerHTML = `<div class="bg-box">
+          <input type="color" class="bg-picker" />
+        </div>`;
+      const bgPicker = document.querySelector(".bg-picker");
+      bgPicker.addEventListener("input", (e) => {
+        bgColor = bgPicker.value;
+        canvas.style.background = bgColor;
+        bg.innerHTML = "background";
+      });
+    });
+  };
 
-  //     const line = document.getElementById("Line");
-  //     line.addEventListener("click", (e) => {
-  //       ctx.beginPath();
-  //       ctx.log(e.target);
-  //       ctx.beginPath();
-  //       ctx.moveTo(e.clientX, e.clientY);
-  //       ctx.lineTo(canvas.width / 2, canvas.height / 2);
-  //       ctx.stroke();
-  //       ctx.closePath();
-  //     });
+  const shapeopts = () => {
+    shapeopt.addEventListener("click", (e) => {
+      shapes.style.display = "flex";
+    });
+  };
 
-  //     const ellipse = document.getElementById("shapeEllipse");
-  //     ellipse.addEventListener("click", (e) => {
-  //       ctx.beginPath();
-  //       ctx.ellipse(
-  //         canvas.width / 2,
-  //         canvas.height / 2,
-  //         50,
-  //         75,
-  //         Math.PI / 2,
-  //         0,
-  //         2 * Math.PI
-  //       );
-  //       ctx.stroke();
-  //     });
-  //   }
+  function makeShapes() {
+    const rectangle = document.getElementById("Rectangle");
+    rectangle.addEventListener("click", (e) => {
+      ctx.strokeRect(
+        e.clientX - canvas.offsetLeft / 2 - 100,
+        e.clientY - canvas.offsetTop / 2,
+        400,
+        200
+      );
+    });
+    const square = document.getElementById("Square");
+    square.addEventListener("click", (e) => {
+      ctx.strokeRect(
+        e.clientX - canvas.offsetLeft / 2,
+        e.clientY - canvas.offsetTop / 2,
+        200,
+        200
+      );
+    });
+    const circle = document.getElementById("Circle");
+    circle.addEventListener("click", (e) => {
+      ctx.beginPath();
+      ctx.arc(
+        e.clientX - canvas.offsetLeft / 2 - 50,
+        e.clientY - canvas.offsetTop / 2,
+        50,
+        0,
+        Math.PI * 2,
+        false
+      );
+      ctx.stroke();
+      ctx.beginPath();
+    });
+    const triangle = document.getElementById("Triangle");
+    triangle.addEventListener("click", (e) => {
+      ctx.beginPath();
+      ctx.moveTo(
+        e.clientX - canvas.offsetLeft / 2,
+        e.clientY - canvas.offsetTop / 2
+      );
+      ctx.lineTo(
+        e.clientX - canvas.offsetLeft / 2 - 100,
+        e.clientY - canvas.offsetTop / 2 - 200
+      );
+      ctx.lineTo(
+        e.clientX - canvas.offsetLeft / 2 - 100,
+        e.clientY - canvas.offsetTop / 2 - 250
+      );
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();
+    });
+
+    const line = document.getElementById("Line");
+    line.addEventListener("click", (e) => {
+      ctx.beginPath();
+      ctx.log(e.target);
+      ctx.beginPath();
+      ctx.moveTo(e.clientX, e.clientY);
+      ctx.lineTo(
+        e.clientX - canvas.offsetLeft / 2,
+        e.clientY - canvas.offsetTop / 2
+      );
+      ctx.stroke();
+      ctx.closePath();
+    });
+
+    const ellipse = document.getElementById("shapeEllipse");
+    ellipse.addEventListener("click", (e) => {
+      ctx.beginPath();
+      ctx.ellipse(
+        e.clientX - canvas.offsetLeft / 2,
+        e.clientY - canvas.offsetTop / 2,
+        50,
+        75,
+        Math.PI / 2,
+        0,
+        2 * Math.PI
+      );
+      ctx.stroke();
+    });
+  }
 
   // const eraseOnMove = () => {
   //     ctx.fillStyle = bgColor
@@ -182,11 +226,14 @@ window.addEventListener("load", () => {
 
   changeColor();
   // changePickerColor();
+  addBgPicker();
   changeWidth();
   clearPage();
   undoCanvas();
   redoCanvas();
   eraser();
+  // shapeopts();
+  // makeShapes();
   //   erasePage();
   //normal drawing
   const start = (e) => {
@@ -236,9 +283,9 @@ window.addEventListener("load", () => {
   canvas.addEventListener("mousemove", draw);
   canvas.addEventListener("mouseout", end, false);
 
-  window.addEventListener("resize", (e) => {
-    canvas.height = 0.77 * window.innerHeight;
-    canvas.width = 0.8 * window.innerWidth;
-    ctx.putImageData(undoArray[undoIdx], 0, 0);
-  });
+  // window.addEventListener("resize", (e) => {
+  //   canvas.height = 0.77 * window.innerHeight;
+  //   canvas.width = 0.8 * window.innerWidth;
+  //   ctx.putImageData(undoArray[undoIdx], 0, 0);
+  // });
 });
