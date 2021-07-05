@@ -1,3 +1,4 @@
+"use strict";
 window.addEventListener("load", () => {
   const canvas = document.querySelector("#canvas");
   const ctx = canvas.getContext("2d");
@@ -12,76 +13,76 @@ window.addEventListener("load", () => {
   const redo = document.querySelector(".redo");
   const erase = document.querySelector(".erase");
   // console.log(colors)
-// -----------------
-//  Cursor Code Start
-// -----------------
+  // -----------------
+  //  Cursor Code Start
+  // -----------------
 
-//---------------
-//    Eraser
-//--------------
+  //---------------
+  //    Eraser
+  //--------------
 
-const circle = document.querySelector('.circle');
+  const circle = document.querySelector(".circle");
 
-canvas.addEventListener('mousemove',mouseMoveHandler)
-canvas.addEventListener('mouseout', linkLeaveHandler);
+  canvas.addEventListener("mousemove", mouseMoveHandler);
+  canvas.addEventListener("mouseout", linkLeaveHandler);
 
-canvas.addEventListener('mousedown', mouseStart)
-canvas.addEventListener('mouseup', mouseEnd)
+  canvas.addEventListener("mousedown", mouseStart);
+  canvas.addEventListener("mouseup", mouseEnd);
 
-function mouseMoveHandler(e) {
+  function mouseMoveHandler(e) {
     circle.style.left = e.clientX - circle.offsetWidth / 2 + "px";
     circle.style.top = e.clientY - circle.offsetHeight / 2 + "px";
     circle.style.opacity = 1;
-}
-function linkLeaveHandler(e){
+  }
+  function linkLeaveHandler(e) {
     circle.style.opacity = 0;
-}
+  }
 
-function mouseStart(e){
+  function mouseStart(e) {
     circle.style.background = "rgba(194, 194, 194, .80)";
-}
-function mouseEnd(e){
+  }
+  function mouseEnd(e) {
     circle.style.background = "rgba(194, 194, 194, .25)";
-}
+  }
 
-range.addEventListener('input', e => {
-    circle.style.width = circle.style.height = `${range.value*2}px`
+  range.addEventListener("input", (e) => {
+    circle.style.width = circle.style.height = `${range.value * 2}px`;
     console.log(range.value);
-})
+  });
 
-//---------------
-//    Pencile
-//--------------
+  //---------------
+  //    Pencil
+  //--------------
 
-const pencil=document.querySelector(".pencil")
-canvas.addEventListener('mousemove', pencilMove)
-canvas.addEventListener('mouseout', pencilLeave)
+  const pencil = document.querySelector(".pencil");
+  canvas.addEventListener("mousemove", pencilMove);
+  canvas.addEventListener("mouseout", pencilLeave);
 
-function pencilMove(e){
-    pencil.style.left = e.clientX+ "px";
-    pencil.style.top = e.clientY-20 + "px";
+  function pencilMove(e) {
+    pencil.style.left = e.clientX + "px";
+    pencil.style.top = e.clientY - 20 + "px";
     pencil.style.opacity = 1;
-}
+  }
 
-function pencilLeave(e){
-    pencil.style.opacity = 0
-}
+  function pencilLeave(e) {
+    pencil.style.opacity = 0;
+  }
 
-const pen_btn = document.querySelector('.pen')
+  const pen_btn = document.querySelector(".pen");
 
-pen_btn.addEventListener('click',function(e){
-    circle.style.display = 'none';
+  pen_btn.addEventListener("click", function (e) {
+    circle.style.display = "none";
     pencil.style.display = "block";
-})
+  });
 
-erase.addEventListener('click', function(e){
+  erase.addEventListener("click", function (e) {
     pencil.style.display = "none";
-    circle.style.display = 'block';
-})
+    circle.style.display = "block";
+  });
 
-// -----------------
-//  Cursor End
-//-----------------
+  // -----------------
+  //  Cursor End
+  //-----------------
 
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
@@ -173,7 +174,7 @@ erase.addEventListener('click', function(e){
       bgPicker.addEventListener("input", (e) => {
         bgColor = bgPicker.value;
         canvas.style.background = bgColor;
-        bg.innerHTML = "background";
+        // bg.innerHTML =";
       });
     });
   };
@@ -290,17 +291,16 @@ erase.addEventListener('click', function(e){
 
   const eraser = () => {
     erase.addEventListener("click", (e) => {
-      pencil.style.fill = penColor
+      pencil.style.fill = penColor;
       penColor = bgColor;
     });
   };
 
   const pen = () => {
     pen_btn.addEventListener("click", (e) => {
-        penColor = pencil.style.fill;
-
+      penColor = pencil.style.fill;
     });
-};
+  };
 
   changeColor();
   // changePickerColor();
@@ -310,12 +310,9 @@ erase.addEventListener('click', function(e){
   undoCanvas();
   redoCanvas();
   eraser();
-<<<<<<< HEAD
   // shapeopts();
   // makeShapes();
-=======
   pen();
->>>>>>> f17a217bc611139b412f70c0ae510d629ef695b6
   //   erasePage();
   //normal drawing
   const start = (e) => {
@@ -364,13 +361,10 @@ erase.addEventListener('click', function(e){
   canvas.addEventListener("mouseup", end);
   canvas.addEventListener("mousemove", draw);
   canvas.addEventListener("mouseout", end, false);
-<<<<<<< HEAD
 
   // window.addEventListener("resize", (e) => {
   //   canvas.height = 0.77 * window.innerHeight;
   //   canvas.width = 0.8 * window.innerWidth;
   //   ctx.putImageData(undoArray[undoIdx], 0, 0);
   // });
-=======
->>>>>>> f17a217bc611139b412f70c0ae510d629ef695b6
 });

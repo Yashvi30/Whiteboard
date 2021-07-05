@@ -32,6 +32,7 @@ body {
   /* margin-right: 30px; */
   padding: 10 10px;
   border: 1px solid rgb(99, 97, 97);
+  background-color: #fff;
   padding: 5px 10px;
   border-radius: 20px;
   position: absolute;
@@ -98,12 +99,10 @@ svg {
   /* display: none; */
 }
 
-<<<<<<< HEAD
 /* .btn {
   display: none;
 } */
-=======
-.btns button::before{
+.btns button::before {
   background-color: rgba(146, 146, 146, 0.65);
   color: white;
   position: absolute;
@@ -115,46 +114,45 @@ svg {
   opacity: 0;
 }
 
-.btns button:hover::before{
+.btns button:hover::before {
   opacity: 1;
   transition: all 0.5s step-end;
 }
 
-.btns .undo::before{
+.btns .undo::before {
   content: "Undo";
 }
 
-.btns .redo::before{
+.btns .redo::before {
   content: "Redo";
 }
 
-.btns .clear::before{
+.btns .clear::before {
   content: "Clear All";
   width: 300%;
 }
 
-.btns .pen::before{
+.btns .pen::before {
   content: "Pen";
 }
 
-.btns .erase::before{
+.btns .erase::before {
   content: "Eraser";
 }
 
-.btns .shape-btn::before{
+.btns .shape-btn::before {
   content: "Shapes";
 }
-
 
 input[type="range"] {
   cursor: pointer;
   position: relative;
 }
 
-input[type="range"]::before{
-  background-color: #000000ec;
+input[type="range"]::before {
+  background-color: rgba(146, 146, 146, 0.65);
   content: "Slider";
-  color: white;
+  color: rgb(255, 255, 255);
   position: absolute;
   top: -45px;
   left: 25%;
@@ -164,7 +162,7 @@ input[type="range"]::before{
   opacity: 0;
 }
 
-input[type="range"]:hover::before{
+input[type="range"]:hover::before {
   opacity: 1;
   transition: all 0.5s step-end;
 }
@@ -178,10 +176,8 @@ input[type="color"] {
   position: relative;
 }
 
-
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0px;
-
 }
 
 input[type="color"]::-webkit-color-swatch {
@@ -189,9 +185,9 @@ input[type="color"]::-webkit-color-swatch {
   border-radius: 50%;
 }
 
-input[type="color"]::before{
-  background-color: #000000ec;
-  content: "Color Picker";
+input[type="color"]::before {
+  background-color: rgba(114, 113, 113, 0.65);
+  content: "Background color";
   color: white;
   position: absolute;
   width: 400%;
@@ -203,13 +199,12 @@ input[type="color"]::before{
   opacity: 0;
 }
 
-input[type="color"]:hover::before{
+input[type="color"]:hover::before {
   opacity: 1;
   transition: all 0.5s step-end;
 }
 
-
-.pencil{
+.pencil {
   position: absolute;
   top: 0;
   left: 0;
@@ -217,7 +212,9 @@ input[type="color"]:hover::before{
   opacity: 0;
   pointer-events: none;
 }
-
+/* .bg-picker input[type="color"]::before {
+  content: "Background color";
+} */
 
 .circle {
   position: fixed;
@@ -225,12 +222,12 @@ input[type="color"]:hover::before{
   border-radius: 50%;
   border: 1px dashed black;
   width: 6px;
-  height:6px;
+  height: 6px;
   left: 20px;
   right: 0;
-  transition: transform .2s ease, opacity .2s ease, border-color .2s ease, background-color .2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease,
+    background-color 0.2s ease;
   pointer-events: none;
-  background-color: rgba(194, 194, 194, .25);
+  background-color: rgba(194, 194, 194, 0.25);
   opacity: 0;
 }
->>>>>>> f17a217bc611139b412f70c0ae510d629ef695b6
