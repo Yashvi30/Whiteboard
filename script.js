@@ -10,6 +10,76 @@ window.addEventListener("load", () => {
   const redo = document.querySelector(".redo");
   const erase = document.querySelector(".erase");
   // console.log(colors)
+// -----------------
+//  Cursor Code Start
+// -----------------
+
+//---------------
+//    Eraser
+//--------------
+
+const circle = document.querySelector('.circle');
+
+canvas.addEventListener('mousemove',mouseMoveHandler)
+canvas.addEventListener('mouseout', linkLeaveHandler);
+
+canvas.addEventListener('mousedown', mouseStart)
+canvas.addEventListener('mouseup', mouseEnd)
+
+function mouseMoveHandler(e) {
+    circle.style.left = e.clientX - circle.offsetWidth / 2 + "px";
+    circle.style.top = e.clientY - circle.offsetHeight / 2 + "px";
+    circle.style.opacity = 1;
+}
+function linkLeaveHandler(e){
+    circle.style.opacity = 0;
+}
+
+function mouseStart(e){
+    circle.style.background = "rgba(194, 194, 194, .80)";
+}
+function mouseEnd(e){
+    circle.style.background = "rgba(194, 194, 194, .25)";
+}
+
+range.addEventListener('input', e => {
+    circle.style.width = circle.style.height = `${range.value*2}px`
+    console.log(range.value);
+})
+
+//---------------
+//    Pencile
+//--------------
+
+const pencil=document.querySelector(".pencil")
+canvas.addEventListener('mousemove', pencilMove)
+canvas.addEventListener('mouseout', pencilLeave)
+
+function pencilMove(e){
+    pencil.style.left = e.clientX+ "px";
+    pencil.style.top = e.clientY-20 + "px";
+    pencil.style.opacity = 1;
+}
+
+function pencilLeave(e){
+    pencil.style.opacity = 0
+}
+
+const pen_btn = document.querySelector('.pen')
+
+pen_btn.addEventListener('click',function(e){
+    circle.style.display = 'none';
+    pencil.style.display = "block";
+})
+
+erase.addEventListener('click', function(e){
+    pencil.style.display = "none";
+    circle.style.display = 'block';
+})
+
+// -----------------
+//  Cursor End
+//-----------------
 
   canvas.height = 0.77 * window.innerHeight;
   canvas.width = 0.8 * window.innerWidth;
@@ -38,7 +108,7 @@ window.addEventListener("load", () => {
       color.addEventListener("click", (e) => {
         console.log("color " + i + " clicked");
         console.log(color.style.background);
-        penColor =
+        pencil.style.fill = penColor =
           i == 0 ? "red" : i == 1 ? "blue" : i == 2 ? "green" : "yellow";
         console.log("gcua");
       });
@@ -176,9 +246,17 @@ window.addEventListener("load", () => {
 
   const eraser = () => {
     erase.addEventListener("click", (e) => {
+      pencil.style.fill = penColor
       penColor = bgColor;
     });
   };
+
+  const pen = () => {
+    pen_btn.addEventListener("click", (e) => {
+        penColor = pencil.style.fill;
+
+    });
+};
 
   changeColor();
   // changePickerColor();
@@ -187,6 +265,7 @@ window.addEventListener("load", () => {
   undoCanvas();
   redoCanvas();
   eraser();
+  pen();
   //   erasePage();
   //normal drawing
   const start = (e) => {
@@ -235,10 +314,4 @@ window.addEventListener("load", () => {
   canvas.addEventListener("mouseup", end);
   canvas.addEventListener("mousemove", draw);
   canvas.addEventListener("mouseout", end, false);
-
-  window.addEventListener("resize", (e) => {
-    canvas.height = 0.77 * window.innerHeight;
-    canvas.width = 0.8 * window.innerWidth;
-    ctx.putImageData(undoArray[undoIdx], 0, 0);
-  });
 });
