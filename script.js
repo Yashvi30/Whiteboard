@@ -135,7 +135,7 @@ window.addEventListener("load", () => {
     clear.addEventListener("click", (e) => {
       ctx.fillStyle = bgColor;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // ctx.fillRect(0, 0, canvas.width, canvas.height);
     });
   };
 
