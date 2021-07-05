@@ -112,7 +112,7 @@ window.addEventListener("load", () => {
         console.log("color " + i + " clicked");
         console.log(color.style.background);
         pencil.style.fill = penColor =
-          i == 0 ? "red" : i == 1 ? "blue" : i == 2 ? "green" : "yellow";
+          i == 0 ? "red" : i == 1 ? "blue" : i == 2 ? "green" : "black";
         console.log("gcua");
       });
     });
